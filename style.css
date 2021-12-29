@@ -12,6 +12,11 @@ body {
   justify-content: center;
 }
 
+audio {
+  width: 100px;
+  height: 20px;
+}
+
 #score {
   display: flex;
   justify-content: center;
