@@ -1,7 +1,7 @@
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 
-context.scale(20, 20);
+context.scale(20, 20); // scale everything 20x, makes the pieces bigger
 
 
 function arenaSweep(){
@@ -145,6 +145,8 @@ function playerFastDrop(){
     } while (player.pos.y++)
 }
 
+
+
 function playerRotate(dir){
     const pos = player.pos.x;
     let offset = 1;
@@ -175,6 +177,7 @@ function playerReset(){
                    (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
+        document.getElementById('prev-score').innerText = player.score;
         player.score = 0;
         updateScore();
     }
@@ -253,7 +256,37 @@ document.addEventListener('keydown', event => {
         playerRotate(-1);
     } else if (event.keyCode === 87){
         playerRotate(1);
+    } else if(event.keyCode === 32){ // spacebar
+        alert("Paused: OK to resume"); // pauses play
     }
+});
+
+// add mobile controls
+const rotateL = document.getElementById('rotateL');
+const rotateR = document.getElementById('rotateR');
+const leftBtn = document.getElementById('leftBtn');
+const upBtn = document.getElementById('uptBtn');
+const downBtn = document.getElementById('downBtn');
+const rightBtn = document.getElementById('rightBtn');
+
+// mobile moving
+document.addEventListener('click', event => {
+    console.log(event.value);
+    // if (event.keyCode == 37){
+    //     playerMove(-1);
+    // } else if (event.keyCode === 39){
+    //     playerMove(+1);
+    // } else if (event.keyCode === 38){
+    //     playerFastDrop();
+    // }else if (event.keyCode === 40){
+    //     playerDrop();
+    // } else if (event.keyCode === 81){
+    //     playerRotate(-1);
+    // } else if (event.keyCode === 87){
+    //     playerRotate(1);
+    // } else if(event.keyCode === 32){ // spacebar
+    //     alert("Paused: OK to resume"); // pauses play
+    // }
 });
 
 playerReset();

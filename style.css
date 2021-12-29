@@ -12,6 +12,14 @@ body {
   justify-content: center;
 }
 
+#score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 20px;
+  text-align: center;
+}
+
 canvas {
   border: solid 0.2em #fff;
   height: 80vh;
@@ -26,17 +34,17 @@ canvas {
 }
 
 /* mobile control buttons */
-.mobile-only {
+.mobile-btn {
   display: none;
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 770px) {
   canvas {
-    height: 70vh;
+    height: 65vh;
   }
-  .mobile-only {
+  .mobile-btn {
     display: inline-flex !important;
-    background: #333;
-    padding-inline: 0.5em;
+    background: #fff;
+    cursor: pointer;
   }
 }
