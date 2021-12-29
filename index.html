@@ -10,9 +10,25 @@
 </head>
 
 <body>
+    <audio autoplay loop src="Tetris.mp3"></audio>
     <div id="score"></div>
-    <canvas id="tetris" width="240" height="400"></canvas>
-
+    <div id="main">
+        <div class="controls">
+            <p>Q &#8634</p>
+            <p>W &#8635</p>
+            <p>&#8592</p>
+            <p>&#8594</p>
+            <p>SPACE | |</p>
+        </div>
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <div class="controls">last game<p id="prev-score"></p>
+        </div>
+    </div>
+    
+    <div class="mobile-only" id="rotateLBut">&#8634</div>
+    <div class="mobile-only" id="rotateRBut">&#8635</div>
+    <div class="mobile-only" id="leftBut">&#8592</div>
+    <div class="mobile-only" id="rightBut">&#8594</div>
 
     <script src="tetris.js"></script>
 </body>

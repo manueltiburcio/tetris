@@ -4,7 +4,6 @@ const context = canvas.getContext('2d');
 context.scale(20, 20);
 
 
-
 function arenaSweep(){
     let rowCount = 1;
     outer: for (let y = arena.length -1; y > 0; --y){

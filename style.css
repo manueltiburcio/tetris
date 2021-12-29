@@ -7,7 +7,36 @@ body {
   overflow-y: hidden;
 }
 
+#main {
+  display: flex;
+  justify-content: center;
+}
+
 canvas {
   border: solid 0.2em #fff;
-  height: 90vh;
+  height: 80vh;
+}
+
+.controls {
+  font-size: 12px;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45vh;
+}
+
+/* mobile control buttons */
+.mobile-only {
+  display: none;
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 770px) {
+  canvas {
+    height: 70vh;
+  }
+  .mobile-only {
+    display: inline-flex !important;
+    background: #333;
+    padding-inline: 0.5em;
+  }
 }
