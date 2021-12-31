@@ -26,8 +26,16 @@ audio {
 }
 
 canvas {
+  display: flex;
+  justify-content: flex-start;
   border: solid 0.2em #fff;
   height: 80vh;
+}
+
+#showNextPiece {
+  width: 60px;
+  height: 60px;
+  color: #000;
 }
 
 .controls {
@@ -47,9 +55,20 @@ canvas {
   canvas {
     height: 65vh;
   }
+  .controls {
+    display: none;
+  }
   .mobile-btn {
+    width: 3em;
+    height: 3em;
+    border-radius: 2;
     display: inline-flex !important;
     background: #fff;
     cursor: pointer;
+  }
+  .mobile-btn .fas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

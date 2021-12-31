@@ -1,8 +1,11 @@
-const canvas = document.getElementById('tetris');
+const canvas = document.getElementById('tetris'); // main canvas
 const context = canvas.getContext('2d');
 
-context.scale(20, 20); // scale everything 20x, makes the pieces bigger
+const showPiece = document.getElementById('showNextPiece'); //canvas showing next piece
+const showPieceCtx= showPiece.getContext('2d');
 
+context.scale(20, 20); // scale everything 20x, makes the pieces bigger
+showPieceCtx.scale(35, 35);
 
 function arenaSweep(){
     let rowCount = 1;
@@ -19,6 +22,9 @@ function arenaSweep(){
 
         player.score += rowCount * 10;
         rowCount *= 2;
+        if (player.score == 50){
+            dropInterval = 500;
+        }
     }
 }
 
@@ -93,15 +99,21 @@ function createPiece(type){
 function draw() {
     context.fillStyle = '#000';
     context.fillRect(0,0, canvas.width, canvas.height);
+
+    showPieceCtx.fillStyle = '#000';
+    showPieceCtx.fillRect(0,0, showPiece.width, showPiece.height);
+
     drawMatrix(arena, {x: 0, y: 0});
+
     drawMatrix(player.matrix, player.pos );
+    drawMatrixNP(nextPiece_temp,{x: 2, y: 0.3});
 }
 
 function drawMatrix(matrix, offset){
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                
+
                 context.fillStyle = colors[value];
                 context.fillRect(x + offset.x,
                                  y + offset.y, 
@@ -110,7 +122,25 @@ function drawMatrix(matrix, offset){
                 context.lineWidth = 0.08;
                 context.strokeStyle="#000";
                 context.strokeRect(x + offset.x, y + offset.y, 1,1);//for white background
+        
+            }
+        });
+    });
+}
 
+function drawMatrixNP(matrix, offset){
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                showPieceCtx.fillStyle = colors[value];
+                showPieceCtx.fillRect(x + offset.x,
+                                 y + offset.y, 
+                                 1, 1);
+
+                showPieceCtx.lineWidth = 0.08;
+                showPieceCtx.strokeStyle="black";
+                showPieceCtx.strokeRect(x + offset.x, y + offset.y, 1,1)
+        
             }
         });
     });
@@ -151,8 +181,6 @@ function playerFastDrop(){
     } while (player.pos.y++)
 }
 
-
-
 function playerRotate(dir){
     const pos = player.pos.x;
     let offset = 1;
@@ -176,8 +204,8 @@ function playerMove(dir){
 }
 
 function playerReset(){
-    const pieces = 'ILJOTSZ';
-    player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.matrix = nextPiece_temp;
+    nextPiece();
     
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) -
@@ -188,6 +216,11 @@ function playerReset(){
         player.score = 0;
         updateScore();
     }
+}
+
+function nextPiece(){
+    const pieces = 'ILJOTSZ';
+    nextPiece_temp = createPiece(pieces[pieces.length * Math.random() | 0]);
 }
 
 function rotate(matrix, dir) {
@@ -243,12 +276,12 @@ const colors = [
 
 const arena = createMatrix(12, 20);
 
-
 const player = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
 }
+
 
 document.addEventListener('keydown', event => {
     if (event.keyCode == 37){
@@ -296,6 +329,7 @@ document.getElementById('rotateR').onclick = function() {
     playerRotate(1); 
 }
 
+nextPiece();
 
 playerReset();
 updateScore();

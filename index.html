@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Tetris</title>
 </head>
@@ -19,21 +22,22 @@
             <p>&#8592 &#8593 &#8595 &#8594</p>
             <p>SPACE to pause</p>
         </div>
+        <canvas id="showNextPiece"></canvas>
         <canvas id="tetris" width="240" height="400"></canvas>
 
-        <!-- aqui colocar un canvas solo del tamano de la pieza -->
+
 
 
         <div class="controls">Last game <p id="prev-score"></p>
         </div>
     </div>
 
-    <button class="mobile-btn" id="rotateL">&#8634</button>
-    <button class="mobile-btn" id="rotateR">&#8635</button>
-    <button class="mobile-btn" id="leftBtn">&#8592</button>
-    <button class="mobile-btn" id="upBtn">&#8593</button>
-    <button class="mobile-btn" id="downBtn">&#8595</button>
-    <button class="mobile-btn" id="rightBtn">&#8594</button>
+    <button class="mobile-btn" id="rotateL"><i class="fas fa-undo"></i></button>
+    <button class="mobile-btn" id="rotateR"><i class="fas fa-undo fa-flip-horizontal"></i></button>
+    <button class="mobile-btn" id="leftBtn"><i class="fas fa-arrow-left"></i></button>
+    <button class="mobile-btn" id="upBtn"><i class="fas fa-arrow-up"></i></button>
+    <button class="mobile-btn" id="downBtn"><i class="fas fa-arrow-down"></i></button>
+    <button class="mobile-btn" id="rightBtn"><i class="fas fa-arrow-right"></i></button>
 
 
 
