@@ -349,9 +349,9 @@ document.getElementById('rotateL').onclick = function() {
 document.getElementById('rotateR').onclick = function() {
     playerRotate(1); 
 }
-document.addEventListener('dblclick', (event) => {
-    event.preventDefault();
-})
+// document.addEventListener('dblclick', (event) => {
+//     event.preventDefault();
+// })
 
 nextPiece();
 playerReset();

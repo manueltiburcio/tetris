@@ -72,7 +72,6 @@ canvas {
     width: 3em;
     height: 3em;
     border-radius: 2;
-
     display: inline-flex !important;
     background: #fff;
     cursor: pointer;
