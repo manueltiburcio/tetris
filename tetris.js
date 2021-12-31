@@ -1,6 +1,12 @@
 const canvas = document.getElementById('tetris'); // main canvas
 const context = canvas.getContext('2d');
 
+// audio
+function Audio() {
+    var x = document.getElementById("myAudio").autoplay;
+    document.getElementById("demo").innerHTML = x;
+}
+
 const showPiece = document.getElementById('showNextPiece'); //canvas showing next piece
 const showPieceCtx= showPiece.getContext('2d');
 
