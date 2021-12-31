@@ -8,6 +8,9 @@ context.scale(20, 20); // scale everything 20x, makes the pieces bigger
 showPieceCtx.scale(35, 35);
 
 function arenaSweep(){
+   //let speedUp = new Boolean (false);
+    let scoreLvlUp = 10;
+    
     let rowCount = 1;
     outer: for (let y = arena.length -1; y > 0; --y){
         for (let x = 0; x < arena[y].length; ++x){
@@ -22,9 +25,34 @@ function arenaSweep(){
 
         player.score += rowCount * 10;
         rowCount *= 2;
-        if (player.score == 50){
-            dropInterval = 500;
-        }
+
+
+        if ( scoreLvlUp <= player.score){
+            dropInterval -= 50;
+            scoreLvlUp += 10;
+        } 
+        if (dropInterval < 200){
+            dropInterval = 200;
+        } 
+
+        console.log(dropInterval);
+
+        // switch (player.score){
+
+        //     case 50:
+        //     dropInterval = 500;
+        //     break;
+
+        //     case 150:
+        //     dropInterval = 300;
+        //     break;
+
+        //     case 300:
+        //     dropInterval = 150;
+        //     break;
+
+        //     dropInterval = 1000;
+        // }
     }
 }
 
@@ -214,6 +242,7 @@ function playerReset(){
         arena.forEach(row => row.fill(0));
         document.getElementById('prev-score').innerText = player.score;
         player.score = 0;
+        dropInterval = 1000;
         updateScore();
     }
 }
@@ -301,14 +330,6 @@ document.addEventListener('keydown', event => {
     }
 });
 
-// add mobile controls
-const rotateL = document.getElementById('rotateL');
-const rotateR = document.getElementById('rotateR');
-const leftBtn = document.getElementById('leftBtn');
-const upBtn = document.getElementById('uptBtn');
-const downBtn = document.getElementById('downBtn');
-const rightBtn = document.getElementById('rightBtn');
-
 // mobile moving
 document.getElementById('leftBtn').onclick = function() {
     playerMove(-1);
@@ -328,9 +349,11 @@ document.getElementById('rotateL').onclick = function() {
 document.getElementById('rotateR').onclick = function() {
     playerRotate(1); 
 }
+document.addEventListener('dblclick', (event) => {
+    event.preventDefault();
+})
 
 nextPiece();
-
 playerReset();
 updateScore();
 update();
