@@ -58,10 +58,21 @@ canvas {
   .controls {
     display: none;
   }
+
+  .mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    left: 470px;
+    width: 550px;
+  }
+
   .mobile-btn {
     width: 3em;
     height: 3em;
     border-radius: 2;
+
     display: inline-flex !important;
     background: #fff;
     cursor: pointer;
