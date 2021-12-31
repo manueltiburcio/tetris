@@ -101,10 +101,16 @@ function drawMatrix(matrix, offset){
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
+                
                 context.fillStyle = colors[value];
                 context.fillRect(x + offset.x,
                                  y + offset.y, 
                                  1, 1);
+
+                context.lineWidth = 0.08;
+                context.strokeStyle="#000";
+                context.strokeRect(x + offset.x, y + offset.y, 1,1);//for white background
+
             }
         });
     });
