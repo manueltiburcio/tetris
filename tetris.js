@@ -272,34 +272,25 @@ const rightBtn = document.getElementById('rightBtn');
 
 // mobile moving
 document.getElementById('leftBtn').onclick = function() {
-    playerMove(-1); 
+    playerMove(-1);
+}
+document.getElementById('rightBtn').onclick = function() {
+    playerMove(+1);
+}
+document.getElementById('upBtn').onclick = function() {
+    playerFastDrop();
+}
+document.getElementById('downBtn').onclick = function() {
+    playerDrop();
+}
+document.getElementById('rotateL').onclick = function() {
+    playerRotate(-1); 
+}
+document.getElementById('rotateR').onclick = function() {
+    playerRotate(1); 
 }
 
-
-document.addEventListener('click', event => {
-    console.log(event.target)
-    // if (event.target.contains === 'leftBtn' ){
-    //     playerMove(-1);
-    // }
-    // if (event.keyCode == 37){
-    //     playerMove(-1);
-    // } else if (event.keyCode === 39){
-    //     playerMove(+1);
-    // } else if (event.keyCode === 38){
-    //     playerFastDrop();
-    // }else if (event.keyCode === 40){
-    //     playerDrop();
-    // } else if (event.keyCode === 81){
-    //     playerRotate(-1);
-    // } else if (event.keyCode === 87){
-    //     playerRotate(1);
-    // } else if(event.keyCode === 32){ // spacebar
-    //     alert("Paused: OK to resume"); // pauses play
-    // }
-});
 
 playerReset();
 updateScore();
 update();
-
-console.log("a");
