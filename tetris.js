@@ -172,6 +172,7 @@ function playerMove(dir){
 function playerReset(){
     const pieces = 'ILJOTSZ';
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+    
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) -
                    (player.matrix[0].length / 2 | 0);
@@ -270,8 +271,16 @@ const downBtn = document.getElementById('downBtn');
 const rightBtn = document.getElementById('rightBtn');
 
 // mobile moving
+document.getElementById('leftBtn').onclick = function() {
+    playerMove(-1); 
+}
+
+
 document.addEventListener('click', event => {
-    console.log(event.value);
+    console.log(event.target)
+    // if (event.target.contains === 'leftBtn' ){
+    //     playerMove(-1);
+    // }
     // if (event.keyCode == 37){
     //     playerMove(-1);
     // } else if (event.keyCode === 39){
@@ -292,3 +301,5 @@ document.addEventListener('click', event => {
 playerReset();
 updateScore();
 update();
+
+console.log("a");
