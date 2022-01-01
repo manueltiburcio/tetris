@@ -80,6 +80,7 @@ canvas {
     position: relative;
     width: 4em;
     height: 4em;
+    color: #000;
     border-radius: 15%;
     left: 30px;
     margin-left: 5px;

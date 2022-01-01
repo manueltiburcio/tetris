@@ -1,3 +1,4 @@
+alert('Presiona Aceptar para jugar');
 const canvas = document.getElementById('tetris'); // main canvas
 const context = canvas.getContext('2d');
 
@@ -314,6 +315,7 @@ const arena = createMatrix(12, 20);
 const player = {
     pos: {x: 0, y: 0},
     matrix: null,
+    matrixSW: null,
     score: 0,
 }
 
