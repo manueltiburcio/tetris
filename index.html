@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <audio id="myAudio" autoplay controls loop src="Tetris.mp3"></audio>
+    <!-- <audio id="myAudio" autoplay controls loop src="Tetris.mp3"></audio> -->
     <p id="demo"></p>
     <div id="score"></div>
     <div id="main">
@@ -23,10 +23,9 @@
             <p>&#8592 &#8593 &#8595 &#8594</p>
             <p>SPACE to pause</p>
         </div>
+        <p class="next-piece">next <br>piece </p>
         <canvas id="showNextPiece"></canvas>
         <canvas id="tetris" width="240" height="400"></canvas>
-
-
 
 
         <div class="controls">Last game <p id="prev-score"></p>
@@ -36,11 +35,16 @@
     <div class="mobile">
         <button class="mobile-btn" id="rotateL"><i class="fas fa-undo"></i></button>
         <button class="mobile-btn" id="rotateR"><i class="fas fa-undo fa-flip-horizontal"></i></button>
-        <button class="mobile-btn" id="leftBtn"><i class="fas fa-arrow-left"></i></button>
-        <button class="mobile-btn" id="upBtn"><i class="fas fa-arrow-up"></i></button>
 
-        <button class="mobile-btn" id="rightBtn"><i class="fas fa-arrow-right"></i></button>
-        <button class="mobile-btn" id="downBtn"><i class="fas fa-arrow-down"></i></button>
+        <div class="mobile-top">
+            <button class="mobile-btn arrow-left" id="leftBtn"><i class="fas fa-arrow-left"></i></button>
+            <button class="mobile-btn" id="upBtn"><i class="fas fa-arrow-up"></i></button>
+            <button class="mobile-btn arrow-down" id="downBtn"><i class="fas fa-arrow-down"></i></button>
+            <button class="mobile-btn arrow-right" id="rightBtn"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+
+
 
     </div>
 

@@ -1,12 +1,10 @@
-alert('Presiona Aceptar para jugar');
+// alert('Presiona Aceptar para jugar');
 const canvas = document.getElementById('tetris'); // main canvas
 const context = canvas.getContext('2d');
 
 // audio
-function Audio() {
-    var x = document.getElementById("myAudio").autoplay;
-    document.getElementById("demo").innerHTML = x;
-}
+// document.getElementById("myAudio").volume = 0.8;
+
 
 const showPiece = document.getElementById('showNextPiece'); //canvas showing next piece
 const showPieceCtx= showPiece.getContext('2d');
