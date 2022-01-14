@@ -104,7 +104,7 @@ canvas {
   }
   .mobile-top {
     position: relative;
-    left: 60px;
+    padding: 0;
   }
   .mobile-top .arrow-down {
     position: relative;
